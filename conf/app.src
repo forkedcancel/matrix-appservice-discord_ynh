@@ -1,7 +1,7 @@
-SOURCE_URL=url of app's source
-SOURCE_SUM=sha256 checksum
+SOURCE_URL=https://github.com/Half-Shot/matrix-appservice-discord/archive/refs/tags/v1.0.0.tar.gz
+SOURCE_SUM=8561eff3d3f55b2e3bd33f4f477e686b7c0f21fe25340b575565d09ed00f99b2
 SOURCE_SUM_PRG=sha256sum
 SOURCE_FORMAT=tar.gz
 SOURCE_IN_SUBDIR=true
-SOURCE_FILENAME=
-SOURCE_EXTRACT=true
+# SOURCE_FILENAME=
+# SOURCE_EXTRACT=true
