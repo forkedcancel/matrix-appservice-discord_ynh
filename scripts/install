@@ -183,6 +183,14 @@ ynh_script_progression --message="Starting a systemd service..." --time --weight
 # Start a systemd service
 ynh_systemd_action --service_name=$app --action="start"
 
+
+#=================================================
+# SEND A README FOR THE ADMIN
+#=================================================
+ynh_script_progression --message="Sending a readme for the admin..."
+
+# ynh_send_readme_to_admin --app_message="../conf/msg_install" --recipients=$admin_email --type='install'
+
 #=================================================
 # END OF SCRIPT
 #=================================================
