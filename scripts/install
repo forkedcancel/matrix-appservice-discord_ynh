@@ -33,7 +33,7 @@ fi
 
 synapse_config_path="/etc/matrix-$synapse_instance"
 # Check Synapse is installed or die early
-if [ ! -d $server_name ]
+if [ ! -d $synapse_config_path ]
 then
   ynh_die "Could not find $synapse_config_path config directory. Ensure that you installed Matrix Synapse first and that you entered a correct \"synapse instance number\""
 fi
