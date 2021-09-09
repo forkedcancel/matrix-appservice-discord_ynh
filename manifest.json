@@ -43,11 +43,16 @@
                 "default": "1"
             },
             {
+                "name": "admin",
+                "type": "user",
+                "example": "johndoe"
+            },
+            {
                 "name": "discord_bot_id",
                 "type": "string",
                 "ask": {
                     "en": "Give the discord bot Application Id.",
-                    "fr": "Renseignez l'identifiant du bot Discord (\"Application ID\)."
+                    "fr": "Renseignez l'identifiant du bot Discord (\"Application ID\")."
                 },
                 "help": {
                     "en": "Ensure to have a bot application created and pick the Application ID. For both, you may find help here: https://www.writebots.com/discord-bot-token",
