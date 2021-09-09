@@ -32,8 +32,8 @@
                 "name": "synapsenumber",
                 "type": "string",
                 "ask": {
-                    "en": "Choose the local synapse instance number to communicate with mautrix_signal",
-                    "fr": "Choisissez le numéro de l'instance synapse qui doit communiquer avec mautrix_signal"
+                    "en": "Choose the local synapse instance number to communicate with the Discord-Matrix bridge",
+                    "fr": "Choisissez le numéro de l'instance synapse qui doit communiquer avec la passerelle Discord-Matrix"
                 },
                 "example": "2 (for instance synapse__2)",
                 "help": {

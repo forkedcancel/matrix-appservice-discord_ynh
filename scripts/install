@@ -20,7 +20,7 @@ ynh_abort_if_errors
 # SET CONSTANTS
 #=================================================
 
-synapsenumber=$YNH_APP_ARG_SYNPASENUMBER
+synapsenumber=$YNH_APP_ARG_SYNAPSENUMBER
 discord_bot_id=$YNH_APP_ARG_DISCORD_BOT_ID
 discord_bot_token=$YNH_APP_ARG_DISCORD_BOT_TOKEN
 
