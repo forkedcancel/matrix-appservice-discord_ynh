@@ -46,10 +46,6 @@ user_domain=$(ynh_app_setting_get --app=$synapse_instance --key=server_name)
 app_service_registration_path="/etc/matrix-$synapse_instance/app-service"
 log_path="/var/log/$app"
 
-ynh_print_OFF
-#db_password=$(ynh_string_random --length=30)
-db_password=$(ynh_app_setting_get --app=$app --key=psqlpwd)
-ynh_print_ON
 
 #=================================================
 # CHECK IF THE APP CAN BE INSTALLED WITH THESE ARGS
@@ -120,6 +116,10 @@ db_user=$db_name
 ynh_app_setting_set --app=$app --key=db_name --value=$db_name
 ynh_psql_test_if_first_run
 ynh_psql_setup_db --db_user=$db_user --db_name=$db_name
+#ynh_print_OFF
+#db_password=$(ynh_string_random --length=30)
+db_password=$(ynh_app_setting_get --app=$app --key=psqlpwd)
+#ynh_print_ON
 
 ynh_psql_execute_as_root --sql="ALTER USER $db_user WITH PASSWORD '$db_password';"
 
@@ -151,6 +151,9 @@ chmod 400 "$config_path"
 chown $app:$app "$config_path"
 
 ynh_exec_warn_less cat $config_path
+ynh_script_progression --message="SLEEPING FOR 5 MINUTES FOR DEBUG PURPOSES" --time --weight=1
+sleep 300
+
 
 any_account_of_domain="@.*:${user_domain//\./\\\.}"
 
