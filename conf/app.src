@@ -1,5 +1,5 @@
-SOURCE_URL=https://github.com/Half-Shot/matrix-appservice-discord/archive/refs/tags/v1.0.0.tar.gz
-SOURCE_SUM=8561eff3d3f55b2e3bd33f4f477e686b7c0f21fe25340b575565d09ed00f99b2
+SOURCE_URL=https://github.com/matrix-org/matrix-appservice-discord/archive/refs/tags/v3.1.1.tar.gz
+SOURCE_SUM=7b393687db8fe96dfd79d24788c52a5fed1845e27a6f2ce68500455f9224bf57
 SOURCE_SUM_PRG=sha256sum
 SOURCE_FORMAT=tar.gz
 SOURCE_IN_SUBDIR=true
