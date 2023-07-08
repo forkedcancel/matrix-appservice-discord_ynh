@@ -43,7 +43,6 @@ server_name=$(ynh_app_setting_get --app $synapse_instance --key server_name)
 domain=$(ynh_app_setting_get --app $synapse_instance --key domain)
 app_service_registration_path="/etc/matrix-$synapse_instance/app-service"
 log_path="/var/log/$app"
-config_path="$final_path/config.yaml"
 
 ynh_print_OFF
 db_password=$(ynh_string_random --length=30)
@@ -56,6 +55,7 @@ ynh_script_progression --message="Validating installation parameters..." --time 
 
 final_path=/opt/yunohost/$app
 test ! -e "$final_path" || ynh_die --message="This path already contains a folder"
+config_path="$final_path/config.yaml"
 
 #=================================================
 # STORE SETTINGS FROM MANIFEST
