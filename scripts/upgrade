@@ -17,6 +17,7 @@ ynh_script_progression --message="Loading installation settings..." --time --wei
 app=$YNH_APP_INSTANCE_NAME
 
 domain=$(ynh_app_setting_get --app=$app --key=domain)
+user_domain=$(ynh_app_setting_get --app=$app --key=user_domain)
 path_url=$(ynh_app_setting_get --app=$app --key=path)
 admin=$(ynh_app_setting_get --app=$app --key=admin)
 final_path=$(ynh_app_setting_get --app=$app --key=final_path)
@@ -24,6 +25,11 @@ language=$(ynh_app_setting_get --app=$app --key=language)
 db_name=$(ynh_app_setting_get --app=$app --key=db_name)
 config_path=$(ynh_app_setting_get --app=$app --key=config_path)
 app_service_registration_path=$(ynh_app_setting_get --app=$app --key=app_service_registration_path)
+
+if [ -z "$user_domain" ]; then
+	user_domain=$domain
+	ynh_app_setting_set --app=$app --key=user_domain --value=$domain
+fi
 
 #=================================================
 # CHECK VERSION

@@ -4,7 +4,7 @@
 
 bridge:
   # Domain part of the bridge, e.g. matrix.org
-  domain: "__DOMAIN__"
+  domain: "__USER_DOMAIN__"
   # This should be your publicly-facing URL because Discord may use it to
   # fetch media from the media store.
   homeserverUrl: "https://__DOMAIN__"
@@ -36,6 +36,8 @@ bridge:
   disableJoinLeaveNotifications: false
   # Disable Invite echos from matrix
   disableInviteNotifications: false
+  # Disable Room Topic echos from matrix
+  disableRoomTopicNotifications: false
   # Auto-determine the language of code blocks (this can be CPU-intensive)
   determineCodeLanguage: false
 # Authentication configuration for the discord bot.
