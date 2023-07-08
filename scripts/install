@@ -21,6 +21,7 @@ ynh_abort_if_errors
 #=================================================
 
 synapsenumber=$YNH_APP_ARG_SYNAPSENUMBER
+app=$YNH_APP_INSTANCE_NAME
 discord_bot_id=$YNH_APP_ARG_DISCORD_BOT_ID
 discord_bot_token=$YNH_APP_ARG_DISCORD_BOT_TOKEN
 
@@ -44,7 +45,6 @@ app_service_registration_path="/etc/matrix-$synapse_instance/app-service"
 log_path="/var/log/$app"
 config_path="$final_path/config.yaml"
 
-app=$YNH_APP_INSTANCE_NAME
 ynh_print_OFF
 db_password=$(ynh_string_random --length=30)
 ynh_print_ON
