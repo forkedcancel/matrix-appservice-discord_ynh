@@ -147,6 +147,8 @@ ynh_add_config --template="config.yaml" --destination="$config_path"
 chmod 400 "$config_path"
 chown $app:$app "$config_path"
 
+ynh_exec_warn_less cat $config_path
+
 any_account_of_domain="@.*:${user_domain//\./\\\.}"
 
 #=================================================
