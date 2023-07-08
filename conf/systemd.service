@@ -9,7 +9,7 @@ Environment="__YNH_NODE_LOAD_PATH__"
 User=__APP__
 Group=__APP__
 WorkingDirectory=__FINALPATH__/
-ExecStart=npm start
+ExecStart=node build/src/discordas.js -c config.yaml
 StandardOutput=syslog
 StandardError=syslog
 
