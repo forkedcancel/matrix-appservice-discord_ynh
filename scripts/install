@@ -164,6 +164,12 @@ chown $app:$app "$log_path"
 #=================================================
 ynh_script_progression --message="Register module in Synapse" --time --weight=1
 
+
+pushd "$final_path"
+	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH yarn start
+#	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH NODE_ENV=production $final_path/start.sh -r -f "$app.yaml"
+popd
+
 run_discordas
 /opt/yunohost/matrix-$synapse_instance/update_synapse_for_appservice.sh \
     || ynh_die "Synapse can't restart with the appservice configuration"
@@ -177,6 +183,15 @@ run_discordas
 ynh_store_file_checksum --file="$app_service_registration_path/$app.yaml"
 ynh_store_file_checksum --file="$config_path"
 
+
+#=================================================
+# GENERIC FINALIZATION
+#=================================================
+# INTEGRATE SERVICE IN YUNOHOST
+#=================================================
+ynh_script_progression --message="Integrating service in YunoHost..." --weight=1
+
+yunohost service add $app --description="$app daemon for bridging Discord and Matrix messages"
 
 #=================================================
 # START SYSTEMD SERVICE
