@@ -150,6 +150,8 @@ ynh_add_config --template="config.yaml" --destination="$config_path"
 chmod 400 "$config_path"
 chown $app:$app "$config_path"
 
+ynh_exec_warn_less cat $config_path
+
 any_account_of_domain="@.*:${user_domain//\./\\\.}"
 
 #=================================================
@@ -175,6 +177,10 @@ ynh_script_progression --message="Register module in Synapse" --time --weight=1
 
 pushd "$final_path"
 	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH node build/src/discordas.js -r -u https://$domain -p $port -c $config_path
+
+  ynh_script_progression --message="SLEEPING FOR 5 MINUTES FOR DEBUG PURPOSES" --time --weight=1
+  sleep 300
+
 	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH node build/src/discordas.js -c $config_path
 #	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH NODE_ENV=production $final_path/start.sh -r -f "$app.yaml"
 popd
