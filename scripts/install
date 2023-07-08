@@ -117,6 +117,7 @@ ynh_script_progression --message="Creating a PostgresSql database..." --time --w
 db_name=$(ynh_sanitize_dbid --db_name=$app)
 db_user=$db_name
 ynh_app_setting_set --app=$app --key=db_name --value=$db_name
+ynh_psql_test_if_first_run
 ynh_psql_setup_db --db_user=$db_user --db_name=$db_name
 
 #=================================================
@@ -171,7 +172,7 @@ ynh_script_progression --message="Register module in Synapse" --time --weight=1
 
 pushd "$final_path"
 	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH node build/src/discordas.js -r -u https://$domain -p $port -c $config_path
-	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH yarn start
+	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH node build/src/discordas.js -c $config_path
 #	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH NODE_ENV=production $final_path/start.sh -r -f "$app.yaml"
 popd
 
