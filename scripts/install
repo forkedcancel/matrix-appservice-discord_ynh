@@ -121,8 +121,7 @@ ynh_app_setting_set --app=$app --key=db_name --value=$db_name
 ynh_psql_test_if_first_run
 ynh_psql_setup_db --db_user=$db_user --db_name=$db_name
 
-ynh_script_progression --message="SLEEPING FOR 5 MINUTES FOR DEBUG PURPOSES" --time --weight=1
-sleep 300
+ynh_psql_execute_as_root --sql="ALTER USER $db_user WITH PASSWORD '$db_password';"
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
@@ -150,8 +149,6 @@ ynh_add_config --template="config.yaml" --destination="$config_path"
 
 chmod 400 "$config_path"
 chown $app:$app "$config_path"
-
-ynh_exec_warn_less cat $config_path
 
 any_account_of_domain="@.*:${user_domain//\./\\\.}"
 
