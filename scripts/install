@@ -132,7 +132,6 @@ setup_final_path_rights
 #=================================================
 ynh_script_progression --message="Building Node dependencies..." --time --weight=20
 
-ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH npm install typescript
 install_node_deps
 
 #=================================================
