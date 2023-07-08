@@ -51,14 +51,14 @@ logging:
   console: "warn" #silly, verbose, info, http, warn, error, silent
   lineDateFormat: "MMM-D HH:mm:ss.SSS" # This is in moment.js format
   files:
-    - file: "__LOGPATH__/debug.log"
+    - file: "__LOG_PATH__/debug.log"
       maxFiles: "20" # Keep 20 files of debug logs
       disable:
         - "PresenceHandler" # Will not capture presence logging
-    - file: "__LOGPATH__/warn.log" # Will capture warnings
+    - file: "__LOG_PATH__/warn.log" # Will capture warnings
       maxFiles: "20" # Keep 20 files of warning logs
       level: "warn"
-    - file: "__LOGPATH__/botlogs.log" # Will capture logs from DiscordBot
+    - file: "__LOG_PATH__/botlogs.log" # Will capture logs from DiscordBot
       maxFiles: "20" # Keep 20 files of info logs
       level: "info"
       enable:
