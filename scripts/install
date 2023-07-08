@@ -47,7 +47,8 @@ app_service_registration_path="/etc/matrix-$synapse_instance/app-service"
 log_path="/var/log/$app"
 
 ynh_print_OFF
-db_password=$(ynh_string_random --length=30)
+#db_password=$(ynh_string_random --length=30)
+db_password=$(ynh_app_setting_get --app=$app --key=psqlpwd)
 ynh_print_ON
 
 #=================================================
