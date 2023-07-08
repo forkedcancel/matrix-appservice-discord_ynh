@@ -156,7 +156,8 @@ ynh_add_systemd_config
 #=================================================
 # CREATE LOG DIR
 #=================================================
-sudo -u $app mkdir -m 700 "$log_path"
+mkdir -p -m 700 "$log_path"
+chown $app:$app "$log_path"
 
 #=================================================
 # REGISTER MODULE IN SYNAPSE
